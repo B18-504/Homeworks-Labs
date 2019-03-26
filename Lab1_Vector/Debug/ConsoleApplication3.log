@@ -1,0 +1,8 @@
+﻿  ConsoleApplication3.cpp
+c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(249): warning C4473: "scanf_s": передано недостаточно аргументов для строки формата
+  c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(249): note: заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
+  c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(249): note: отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
+  c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(249): note: этот аргумент используется в качестве размера буфера
+c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(55): warning C4715: createVector: значение возвращается не при всех путях выполнения
+c:\users\user\source\repos\consoleapplication3\consoleapplication3\consoleapplication3.cpp(116): warning C4715: getItem: значение возвращается не при всех путях выполнения
+  ConsoleApplication3.vcxproj -> C:\Users\user\source\repos\ConsoleApplication3\Debug\ConsoleApplication3.exe
