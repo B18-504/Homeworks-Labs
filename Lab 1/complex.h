@@ -39,9 +39,9 @@ void complex_print(struct complex* num) { //вывод комплексного 
 }
 
 struct complex complex_math(struct complex* num1, char sign[1], struct complex* num2) { //алгебраические операции с комплексными числами
-    struct complex mem;
-    if (strncmp(sign, "+", 1) == 0) {
-        mem.re = num1->re + num2->re;
+    struct complex mem;                                                                 //ЛЁВА БЛЯТЬ ТАК НЕЛЬЗЯ
+    if (strncmp(sign, "+", 1) == 0) {                                                   //char sign[1] вообще убивает
+        mem.re = num1->re + num2->re;                                                   //char sign, а символ в одинарных кавычках
         mem.im = num1->im + num2->im;
         mem.mod = sqrt(powf(mem.re, 2) + powf(mem.im, 2));
         if (mem.re > 0) {
