@@ -42,7 +42,7 @@ struct complex complex_math(struct complex* num1, char sign[1], struct complex* 
     struct complex mem;                                                                 //ЛЁВА БЛЯТЬ ТАК НЕЛЬЗЯ
     if (strncmp(sign, "+", 1) == 0) {                                                   //char sign[1] вообще убивает
         mem.re = num1->re + num2->re;                                                   //char sign, а символ в одинарных кавычках
-        mem.im = num1->im + num2->im;
+        mem.im = num1->im + num2->im;                                                   //делаю что хочу
         mem.mod = sqrt(powf(mem.re, 2) + powf(mem.im, 2));
         if (mem.re > 0) {
             mem.arg = atanf(mem.im/mem.re);
