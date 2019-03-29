@@ -100,6 +100,24 @@ List<Type>* clear_memory(List<Type> *head) {
 }
 
 template <typename Type>
+List<Type>* operator+ (List<Type> head1, List<Type> head2) {
+    List<Type> *tmp = &head1, *headf = nullptr, *tmpf = nullptr;
+    tmpf = list_create_head(tmp, tmp->data);
+    headf = tmpf;
+    tmp = tmp->next;
+    while (tmp != nullptr) {
+        tmpf = list_create_continue(tmpf, tmp->data);
+        tmp = tmp->next;
+    }
+    tmp = &head2;
+    while (tmp != nullptr) {
+        tmpf = list_create_continue(tmpf, tmp->data);
+        tmp = tmp->next;
+    }
+    return headf;
+}
+
+template <typename Type>
 List<Type>* list_map(List<Type> *head, void (*f)(List<Type>*)) {
     List<Type> *tmp = head;
     while (tmp != nullptr) {
@@ -144,6 +162,23 @@ int list_reduce(List<Type> *head, int (*f)(List<Type>*, const int), const int c,
         tmp = tmp->next;
     }
     return result;
+}
+
+template <typename Type>
+List<Type>* list_get_subsequence(List<Type> *head, const int ind1, const int ind2) {
+    List<Type> *tmp = head, *headf = nullptr, *tmpf = nullptr;
+    for (int i = 1; i < ind1; i++) {
+        tmp = tmp->next;
+    }
+    tmpf = new List<Type>;
+    tmpf = list_create_head(tmpf, tmp->data);
+    headf = tmpf;
+    tmp = tmp->next;
+    for (int i = ind1; i < ind2; i++) {
+        tmpf = list_create_continue(tmpf, tmp->data);
+        tmp = tmp->next;
+    }
+    return headf;
 }
 
 #endif
