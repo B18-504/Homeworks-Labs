@@ -8,4 +8,4 @@ Lab 1 - number 11:
 Lab 2 - number 25:
 - single linked list;
 - ints, students and functions;
-- map, where, reduce, sorting, getting subsequence, merging; 
+- map, where, reduce, sorting, getting subsequence, merging.
