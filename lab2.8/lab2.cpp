@@ -4,20 +4,13 @@
 #include "stdafx.h"
 #include <locale.h>
 #include "polynom.h"
+#include "cpx.h"
 #include "io.h"
 
-#define t double
-#define ULLI unsigned long long int
+#define t double		//для пасты в аргументы шаблонов (double или Cpx)
 
 int main()
 {
-	setlocale(0, "RUS");
-	Polynom<t> a, b;
-	a.in();
-	b.in();
-	a = a * b;
-	a.out();
-	b.out();
 	setlocale(0, "RUS");
 	system("PAUSE");
     return 0;

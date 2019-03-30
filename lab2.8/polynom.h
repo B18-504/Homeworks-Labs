@@ -181,14 +181,13 @@ public:
 
 	Element<T> operator()(T x)
 	{
-		Element<T> result(0);
-		Element<T> mul(1);
-		Element<T> *c = body.last;
+		T result = 0, mul = 1;
+		Element<T> *c = body.getlast();
 		while (c)
 		{
-			result = result - *c * mul;
+			result = result + c->get() * mul;
 			mul = mul * x;
-			c = c->prev;
+			c = c->getprev();
 		}
 		return Element<T>(result);
 	}
