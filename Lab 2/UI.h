@@ -1,6 +1,10 @@
 #ifndef UI_h
 #define UI_h
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+#include <iomanip>
 #include "classes.h"
 
 bool int_choices(int c, List<int> *head) {
@@ -189,6 +193,7 @@ int student_generic(List<Student> *tmp, const int c) {
 }
 
 void int_UI() {
+    srand((unsigned)time(NULL));
     int c = 0, N = 0, Nb = 0;
     List<int> *head = nullptr, *tmp = nullptr, *bonus = nullptr;
     while (1) {
@@ -222,17 +227,51 @@ void int_UI() {
         
         if (c == 1) {
             head = clear_memory(head);
-            int data;
-            cout << "N: ";
-            cin >> N;
-            cout << "Enter data in line order: ";
-            cin >> data;
-            tmp = list_create_head(tmp, data);
-            head = tmp;
-            for (int i = 0; i < N-1; i++) {
-                cin >> data;
-                tmp = list_create_continue(tmp, data);
+            cout << "Manual/Automatic? (1/0): ";
+            cin >> c;
+            while ((c > 1) + (c < 0)) {
+                cout << "!Wrong choice!" << endl;
+                cout << "Manual/Automatic? (1/0): ";
+                cin >> c;
             }
+            if (c == 1) {
+                head = clear_memory(head);
+                int data;
+                cout << "N: ";
+                cin >> N;
+                while (N < 1) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N: ";
+                    cin >> N;
+                }
+                cout << "Enter data in line order: ";
+                cin >> data;
+                tmp = list_create_head(tmp, data);
+                head = tmp;
+                for (int i = 0; i < N-1; i++) {
+                    cin >> data;
+                    tmp = list_create_continue(tmp, data);
+                }
+            }
+            else if (c == 0) {
+                head = clear_memory(head);
+                int data;
+                cout << "N: ";
+                cin >> N;
+                while (N < 1) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N: ";
+                    cin >> N;
+                }
+                data = rand() % (100-(-100)) - 100;
+                tmp = list_create_head(tmp, data);
+                head = tmp;
+                for (int i = 0; i < N-1; i++) {
+                    data = rand() % (100-(-100)) - 100;
+                    tmp = list_create_continue(tmp, data);
+                }
+            }
+            c = 1;
         }
         
         if (c == 2) {
@@ -356,22 +395,49 @@ void int_UI() {
         }
         
         if ((c == 8) * (bonus == nullptr)) {
-            int data;
-            cout << "N: ";
-            cin >> Nb;
-            cout << "Enter data in line order: ";
-            cin >> data;
-            tmp = list_create_head(tmp, data);
-            bonus = tmp;
-            for (int i = 0; i < Nb-1; i++) {
-                cin >> data;
-                tmp = list_create_continue(tmp, data);
+            cout << "Manual/Automatic? (1/0): ";
+            cin >> c;
+            while ((c > 1) + (c < 0)) {
+                cout << "!Wrong choice!" << endl;
+                cout << "Manual/Automatic? (1/0): ";
+                cin >> c;
             }
+            if (c == 1) {
+                int data;
+                cout << "N: ";
+                cin >> Nb;
+                cout << "Enter data in line order: ";
+                cin >> data;
+                tmp = list_create_head(tmp, data);
+                bonus = tmp;
+                for (int i = 0; i < Nb-1; i++) {
+                    cin >> data;
+                    tmp = list_create_continue(tmp, data);
+                }
+            }
+            else if (c == 0) {
+                int data;
+                cout << "N: ";
+                cin >> Nb;
+                while (Nb < 1) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N: ";
+                    cin >> Nb;
+                }
+                data = rand() % (100-(-100)) - 100;
+                tmp = list_create_head(tmp, data);
+                bonus = tmp;
+                for (int i = 0; i < Nb-1; i++) {
+                    data = rand() % (100-(-100)) - 100;
+                    tmp = list_create_continue(tmp, data);
+                }
+            }
+            c = 8;
         }
         else if ((c == 8) * (bonus != nullptr)) {
             List<int> *mem = nullptr;
             mem = *head + *bonus;
-            free(bonus);
+            clear_memory(bonus);
             bonus = nullptr;
             cout << "Result of merging: " << endl;
             tmp = mem;
@@ -379,7 +445,7 @@ void int_UI() {
                 tmp->int_print();
                 tmp = tmp->next;
             }
-            free(mem);
+            clear_memory(mem);
             getchar();
             getchar();
         }
@@ -427,17 +493,53 @@ void stud_UI() {
         if (c == 1) {
             head = clear_memory(head);
             Student data;
-            cout << "N: ";
-            cin >> N;
-            cout << "Enter data: ";
-            cin >> data.surn >> data.name >> data.patr >> data.group;
-            tmp = list_create_head(tmp, data);
-            head = tmp;
-            for (int i = 0; i < N-1; i++) {
+            cout << "Manual/From base? (1/0): ";
+            cin >> c;
+            if (c == 1) {
+                cout << "N: ";
+                cin >> N;
+                while (N < 1) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N: ";
+                    cin >> N;
+                }
+                while (N < 1) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N: ";
+                    cin >> N;
+                }
                 cout << "Enter data: ";
                 cin >> data.surn >> data.name >> data.patr >> data.group;
-                tmp = list_create_continue(tmp, data);
+                tmp = list_create_head(tmp, data);
+                head = tmp;
+                for (int i = 0; i < N-1; i++) {
+                    cout << "Enter data: ";
+                    cin >> data.surn >> data.name >> data.patr >> data.group;
+                    tmp = list_create_continue(tmp, data);
+                }
             }
+            else if (c == 0) {
+                cout << "N (Nmax = 41): ";
+                cin >> N;
+                while ((N > 41) + (N < 1)) {
+                    cout << "!Wrong choice!" << endl;
+                    cout << "N (Nmax = 41): ";
+                    cin >> N;
+                }
+                ifstream file("/Users/levmarder/Documents/Прога/Studying(lab 2)/Studying(lab 2)/students.txt");
+                string memoria;
+                getline(file, memoria);
+                data.transform(memoria);
+                tmp = list_create_head(tmp, data);
+                head = tmp;
+                for (int i = 0; i < N-1; i++) {
+                    getline(file, memoria);
+                    data.transform(memoria);
+                    tmp = list_create_continue(tmp, data);
+                }
+                file.close();
+            }
+            c = 1;
         }
         
         if (c == 2) {
@@ -565,11 +667,16 @@ void stud_UI() {
             Student data;
             cout << "N: ";
             cin >> Nb;
+            while (Nb < 1) {
+                cout << "!Wrong choice!" << endl;
+                cout << "N: ";
+                cin >> Nb;
+            }
             cout << "Enter data: ";
             cin >> data.surn >> data.name >> data.patr >> data.group;
             tmp = list_create_head(tmp, data);
             bonus = tmp;
-            for (int i = 0; i < N-1; i++) {
+            for (int i = 0; i < Nb-1; i++) {
                 cout << "Enter data: ";
                 cin >> data.surn >> data.name >> data.patr >> data.group;
                 tmp = list_create_continue(tmp, data);
@@ -600,6 +707,7 @@ void stud_UI() {
 }
 
 void func_UI() {
+    srand((unsigned)time(NULL));
     int c = 0, N = 0;
     List<Func> *head = nullptr, *tmp = nullptr;
     while (1) {
@@ -623,14 +731,33 @@ void func_UI() {
         if (c == 1) {
             head = clear_memory(head);
             Func f;
+            int ci;
+            cout << "Manual/Automatic? (1/0): ";
+            cin >> ci;
+            while ((ci > 1) + (ci < 0)) {
+                cout << "!Wrong choice!" << endl;
+                cout << "Manual/Automatic? (1/0): ";
+                cin >> ci;
+            }
             cout << "N: ";
             cin >> N;
+            while (N < 1) {
+                cout << "!Wrong choice!" << endl;
+                cout << "N: ";
+                cin >> N;
+            }
             for (int i = 0; i < N; i++) {
-                cout << "List of functions to add to List:" << endl;
-                cout << "1. Print \"Hello World!\"" << endl;
-                cout << "2. Print PI" << endl;
-                cout << "Choose wisely: ";
-                cin >> c;
+                if (ci == 1) {
+                    cout << "List of functions to add to List:" << endl;
+                    cout << "1. Print \"Hello World!\"" << endl;
+                    cout << "2. Print PI" << endl;
+                    cout << "Choose wisely: ";
+                    cin >> c;
+                }
+                else if (ci == 0) {
+                    c = rand() % 2 + 1;
+                    cout << c << endl;
+                }
                 if (head == nullptr) {
                     if (c == 1) {
                         f.func_set(print_hello);

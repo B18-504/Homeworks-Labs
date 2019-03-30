@@ -20,6 +20,39 @@ public:
     void student_print() {
         cout << surn << " " << name << " " << patr << " " << group << endl;
     }
+    void transform(string str) {
+        int i = 0, j = 0, count = 0;
+        string buff = str;
+        while (buff[i] != ' ') {
+            i++;
+            count++;
+        }
+        surn = buff.substr(0, count);
+        j = i+1;
+        count = 0;
+        i++;
+        while (buff[i] != ' ') {
+            i++;
+            count++;
+        }
+        name = buff.substr(j, count);
+        j = i+1;
+        count = 0;
+        i++;
+        while (buff[i] != ' ') {
+            i++;
+            count++;
+        }
+        patr = buff.substr(j, count);
+        j = i+1;
+        count = 0;
+        i++;
+        while (buff[i] != '\0') {
+            i++;
+            count++;
+        }
+        group = buff.substr(j, count);
+    }
 };
 
 class Func {
