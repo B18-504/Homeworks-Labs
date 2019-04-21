@@ -133,7 +133,7 @@ void getulli(ULLI &a, bool &err) //Checking for overflow
 		if (isdigit(buff))
 		{
 			first = 0;
-			if ((a * 10) >= a) //It is NOT always true
+			if (a < ULLI(1844674407370955162))
 			{
 				a *= 10;
 				if (ULLI(MULLI - buff + 48) >= a)
