@@ -1,4 +1,4 @@
-#pragma once  //тут мы связываем объекты из проги с CIO
+#pragma once  //Binding I/O with CIO.h
 
 #include "CIO.h"
 
