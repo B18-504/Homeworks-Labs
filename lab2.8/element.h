@@ -8,12 +8,8 @@ private:
 	Element *next = 0, *prev = 0;
 
 public:
-	Element(bool b = 0)
+	Element()
 	{
-		if (b)
-		{
-			in();
-		}
 	}
 	Element(T a, Element *p = 0, Element *n = 0)
 	{
