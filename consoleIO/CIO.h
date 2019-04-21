@@ -9,7 +9,7 @@
 using namespace std;
 
 
-void getd(double &a, bool &err) // вежливо постоит до первого ввода, если что не так - предупредит (НЕ ПОЛЬЗОВАТЕЛЯ, А ТЕБЯ, ПОГРАММЕСТ!)
+void getd(double &a, bool &err) //Waits for the input and reports if something is wrong
 {
 	char buff;
 	bool first = 1, point = 0, finish = 0;
@@ -53,7 +53,7 @@ void getd(double &a, bool &err) // вежливо постоит до первого ввода, если что не
 	FLUSH;
 }
 
-void getloopd(double &a) // процедура-ждун
+void getloopd(double &a) //Loops until everything is ok
 {
 	bool err = 1;
 	while (err)
@@ -62,13 +62,13 @@ void getloopd(double &a) // процедура-ждун
 	}
 }
 
-void reqd(double &a, char *request, bool &err) // то же, что и get, но с передачей запроса на консоль
+void reqd(double &a, char *request, bool &err) //The same as get, but with a request string
 {
 	cout << request;
 	getd(a, err);
 }
 
-void reqloopd(double &a, char *request) // процедура-попугай
+void reqloopd(double &a, char *request) //Parrot
 {
 	bool err = 1;
 	while (err)
@@ -79,7 +79,7 @@ void reqloopd(double &a, char *request) // процедура-попугай
 
 
 
-void getch(char &a, char *valid, bool &err) // В КОНЦЕ VALID ДОЛЖЕН СТОЯТЬ НУЛЬ!
+void getch(char &a, char *valid, bool &err) //NULL-terminator is a MUST in the char *valid!
 {
 	err = 1;
 	char *p = valid;
@@ -121,7 +121,7 @@ void reqloopch(char &a, char *valid, char *request)
 
 
 
-void getulli(ULLI &a, bool &err) //с проверкой ввода, в т.ч. на перенос (БЕЗЗНАКОВЫЙ!)
+void getulli(ULLI &a, bool &err) //Checking for overflow
 {
 	char buff;
 	bool finish = 0, first = 1;
@@ -133,7 +133,7 @@ void getulli(ULLI &a, bool &err) //с проверкой ввода, в т.ч. на перенос (БЕЗЗНАК
 		if (isdigit(buff))
 		{
 			first = 0;
-			if ((a * 10) >= a) //а вот не всегда
+			if (a < ULLI(1844674407370955162))
 			{
 				a *= 10;
 				if (ULLI(MULLI - buff + 48) >= a)
