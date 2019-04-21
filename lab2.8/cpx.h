@@ -34,12 +34,12 @@ public:
 		return sqrt((re*re + im*im));
 	}
 	
-	Cpx conj() //сопряжённое
+	Cpx conj() //Conjuncted
 	{
 		return Cpx(re, -im);
 	}
 
-	Cpx inv() //обратное
+	Cpx inv() //Inversion
 	{
 		return conj() / (re*re + im*im);
 	}
