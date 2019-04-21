@@ -36,7 +36,7 @@ public:
 	
 	Cpx conj() //сопряжённое
 	{
-		return (re, -im);
+		return Cpx(re, -im);
 	}
 
 	Cpx inv() //обратное
