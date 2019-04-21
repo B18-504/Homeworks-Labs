@@ -7,7 +7,7 @@ class Polynom
 {
 private:
 	List<T> body;
-	ULLI l;
+	ULLI l;								//It isn't strictly necessary,but helps with output
 
 public:
 
@@ -37,13 +37,13 @@ public:
 
 	void out();
 
-	void append(Element<T> &a) // Новое старшее слагаемое
+	void append(Element<T> &a) //New elder summand
 	{
 		body.ath(a);
 		l++;
 		if (l == 0)
 		{
-			throw 1; // Счётчик переполнился
+			throw 1; //Counter overflow
 		}
 	}
 
@@ -118,8 +118,8 @@ public:
 		return Polynom(res);
 	}
 
-	Polynom operator*(Polynom &b)	//То же, что и композиция
-	{								//Алгоритм неоптимальный, но кодить другой в лом, да и всё равно O(n*m)
+	Polynom operator*(Polynom &b)	//Just the same as composition
+	{								//The algorithm is bitta not optimal, but still O(n*m) and I'm not going to fix it :)
 		if (l < b.l)
 		{
 			return (b * *this);
