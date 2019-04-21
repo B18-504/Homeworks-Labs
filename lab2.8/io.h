@@ -3,17 +3,6 @@
 #include "CIO.h"
 
 
-void Cpxin(Cpx &a)
-{
-	reqloopd(a.re, "Действительная часть: ");
-	reqloopd(a.im, "Мнимая часть: ");
-}
-
-void Cpxout(Cpx &a, char *end = 0)
-{
-	cout << a.re << " + i*" << a.im << end;
-}
-
 void i(Cpx &a)
 {
 	reqloopd(a.re, "Действительная часть: ");
