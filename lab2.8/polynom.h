@@ -179,7 +179,7 @@ public:
 
 
 
-	Element<T> operator()(T x)
+	T operator()(T x)
 	{
 		T result = 0, mul = 1;
 		Element<T> *c = body.getlast();
@@ -189,7 +189,7 @@ public:
 			mul = mul * x;
 			c = c->getprev();
 		}
-		return Element<T>(result);
+		return T(result);
 	}
 
 
