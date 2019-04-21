@@ -134,7 +134,7 @@ public:
 			{
 				cb = b.body.getlast();
 				ca = s;
-				c = Element<T>(.0);
+				c = Element<T>(T(0));
 				while (ca)
 				{
 					c = c + *ca * *cb;
