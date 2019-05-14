@@ -1,5 +1,6 @@
-# Homeworks-Labs
+# Marder's labs
 
+<<<<<<< HEAD
 Коллекция заголовочных файлов для лабораторных работ
 
 # Как это установить ?
@@ -78,3 +79,16 @@
   * Когда мы переходим на новую ветку (например на ветку Суруша), все файлы в локальном репозитории меняются на файлы ветки, на которую вы перешли (они не всегда актуальные, затем и нужен git pull). 
   
   * НИКОГДА НЕ ПЕРЕХОДИТЕ НА ДРУГУЮ ВЕТКУ, ЕСЛИ НЕ СОХРАНИЛИ ИЗМЕНЕНИЯ В ТЕКУЩЕЙ, ВАШИ ФАЙЛЫ ПРОСТО ПЕРЕТРУТСЯ !!!  (Основанно на боли переписываия 100500 строк кода) 
+=======
+Lab 1 - number 11:
+- dynamic array;
+- ints and strings;
+- manual and automatic input;
+- map, where, sorting, merging.
+
+Lab 2 - number 25:
+- single linked list;
+- ints, students and functions;
+- manual and automatic input;
+- map, where, reduce, sorting, getting subsequence, merging.
+>>>>>>> 4c3f0ef7ae7b5c7f59dcd76a4cae8e46386daaaf
