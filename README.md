@@ -11,3 +11,5 @@ Lab 2 - number 25:
 - ints, students and functions;
 - manual and automatic input;
 - map, where, reduce, sorting, getting subsequence, merging.
+
+Lab 3 - number 11
