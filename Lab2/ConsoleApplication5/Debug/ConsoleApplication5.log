@@ -1,0 +1,47 @@
+﻿  ConsoleApplication5.cpp
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(45): error C2664: "void List<T>::map(Node<T> (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "Node<int> (__cdecl *)(Node<int>)" в "Node<T> (__cdecl *)(Node<T>)"
+          with
+          [
+              T=complex
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(45): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(132): note: выполняется компиляция ссылки на экземпляр шаблон функции "void loop<complex>(T)"
+          with
+          [
+              T=complex
+          ]
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(50): error C2664: "List<T> List<T>::where(bool (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "bool (__cdecl *)(Node<int>)" в "bool (__cdecl *)(Node<T>)"
+          with
+          [
+              T=complex
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(50): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(101): error C2664: "void List<T>::dvide(bool (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "bool (__cdecl *)(Node<int>)" в "bool (__cdecl *)(Node<T>)"
+          with
+          [
+              T=complex
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(101): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(45): error C2664: "void List<T>::map(Node<T> (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "Node<int> (__cdecl *)(Node<int>)" в "Node<T> (__cdecl *)(Node<T>)"
+          with
+          [
+              T=std::string
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(45): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(136): note: выполняется компиляция ссылки на экземпляр шаблон функции "void loop<std::string>(T)"
+          with
+          [
+              T=std::string
+          ]
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(50): error C2664: "List<T> List<T>::where(bool (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "bool (__cdecl *)(Node<int>)" в "bool (__cdecl *)(Node<T>)"
+          with
+          [
+              T=std::string
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(50): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
+C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(101): error C2664: "void List<T>::dvide(bool (__cdecl *)(Node<T>))": невозможно преобразовать аргумент 1 из "bool (__cdecl *)(Node<int>)" в "bool (__cdecl *)(Node<T>)"
+          with
+          [
+              T=std::string
+          ]
+  C:\Users\user\source\repos\ConsoleApplication5\ConsoleApplication5\ConsoleApplication5.cpp(101): note: Конечному типу не соответствует ни одной функции с данным именем в области видимости
