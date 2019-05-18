@@ -15,4 +15,14 @@ public:
 	void in(char **);
 
 	void out(char **);
+
+	bool operator==(Dbl &a)
+	{
+		return(body == a.body);
+	}
+
+	bool operator!=(Dbl &a)
+	{
+		return(body != a.body);
+	}
 };

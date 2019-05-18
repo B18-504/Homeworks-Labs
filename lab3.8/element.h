@@ -66,6 +66,6 @@ public:
 
 	void in();
 
-	void out();
+	void out(char **p);
 
 };

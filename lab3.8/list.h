@@ -76,6 +76,25 @@ public:
 		}
 	}
 
+	void in(char **p);
+
+	void out(char **p);
+
+	void wipe()
+	{
+		if (first)
+		{
+			while (first->getnext())
+			{
+				first = first->getnext();
+				delete first->getprev();
+			}
+			delete first;
+			last = 0;
+			first = 0;
+		}
+	}
+
 	~List()														//Iterating throug the list...
 	{
 		if (first)

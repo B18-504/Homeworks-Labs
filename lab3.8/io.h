@@ -24,6 +24,11 @@ void Dbl::out(char **p)
 	cout << body << *p;
 }
 
+void Int::out(char **p)
+{
+	cout << body << *p;
+}
+
 template <typename T, int n>
 void Tree<T, n>::Node::in(char **p)
 {
@@ -40,11 +45,11 @@ template <typename T, int n>
 void Tree<T, n>::in(char **p, int way[n + 1])
 {
 	wipe();
-	ULLI bol; //to be replaced with shorter type
+	char ch;
 	Stack s;
 	cout << *p;
-	reqloopulli(bol, *(p + 1));
-	if (bol)
+	reqloopch(ch, "yn", *(p + 1));
+	if (ch == 'y')
 	{
 		root = new Node;
 	}
@@ -64,8 +69,8 @@ void Tree<T, n>::in(char **p, int way[n + 1])
 		}
 		else
 		{
-			reqloopulli(bol, *(p + 1));
-			if (bol)
+			reqloopch(ch, "yn", *(p + 1));
+			if (ch == 'y')
 			{
 				c->setnext(new Node(c), way[s.get()]);
 				c = c->getnext(way[s.get()]);
@@ -85,7 +90,7 @@ void Tree<T, n>::out(char **p, int way[n + 1])
 {
 	cout << p[0];
 	Stack s;
-	Tree<T, n>::Node *c = a.root;
+	Tree<T, n>::Node *c = root;
 	if (c)
 	{
 		cout << p[1];
@@ -104,7 +109,7 @@ void Tree<T, n>::out(char **p, int way[n + 1])
 		}
 		else if (way[s.get()] == n)
 		{
-			c->out(*(p + 3));
+			c->out(p + 3);
 			s.inc();
 		}
 		else
@@ -122,5 +127,23 @@ void Tree<T, n>::out(char **p, int way[n + 1])
 				s.inc();
 			}
 		}
+	}
+}
+
+template <typename T>
+void Element<T>::out(char **p)
+{
+	body.out(p);
+}
+
+template <typename T>
+void List<T>::out(char **p)
+{
+	cout << *p;
+	Element<T> *c = first;
+	while (c)
+	{
+		c->out(p + 1);
+		c = c->getnext();
 	}
 }

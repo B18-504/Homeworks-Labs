@@ -34,7 +34,7 @@ public: //private
 
 		void set(T &a)
 		{
-			body = T(a);
+			body = a;
 		}
 
 		T get()
@@ -131,6 +131,272 @@ public:
 				s.inc();
 			}
 		}
+	}
+
+	void where(Tree &t, bool F(T&))
+	{
+		t.wipe();
+		Stack s;
+		s.push(0);
+		Node *c = root, *p = 0;
+		if (c)
+		{
+			if (F(c->get()))
+			{
+				t.root = new Node(0);
+				t.root->set(c->get());
+				p = t.root;
+			}
+			else
+			{
+				c = 0;
+			}
+		}
+		while (c)
+		{
+			if (s.get() == n)
+			{
+				s.pop();
+				c = c->getprev();
+				p = p->getprev();
+			}
+			else
+			{
+				if (c->getnext(s.get()))
+				{
+					if (F(c->getnext(s.get())->get()))
+					{
+						s.inc();
+						s.push(0);
+						c = c->getnext(s.get());
+						p->setnext(new Node(p), s.get());
+						p->set(c->get());
+					}
+					else
+					{
+						s.inc();
+					}
+				}
+				else
+				{
+					s.inc();
+				}
+			}
+		}
+	}
+
+	void find(T &a, List<Int> &l)
+	{
+		Stack s;
+		Int i;
+		Node *c = root;
+		s.push(0);
+		if (c)
+		{
+			l.ate(Int(0));
+		}
+		while (c)
+		{
+			if (!s.get())
+			{
+				if (a == c->get())
+				{
+					c = 0;
+				}
+				s.inc();
+			}
+			else if (s.get() == (n + 1))
+			{
+				c = c->getprev();
+				s.pop();
+				l.take(i);
+			}
+			else if (c->getnext(s.get() - 1))
+			{
+				c = c->getnext(s.get() - 1);
+				i = s.get() - 1;
+				l.ate(i);
+				s.inc();
+				s.push(0);
+			}
+			else
+			{
+				s.inc();
+			}
+		}
+	}
+
+	void find(Tree &t, List<Int> &l)
+	{
+		l.wipe();
+		Stack s;
+		Int i;
+		bool f;
+		Node *c = root, *p = t.root;
+		if (bool(c)*bool(p))
+		{
+			l.ate(Int(0));
+		}
+		s.push(0);
+		while (bool(c)*bool(p))
+		{
+			if (!s.get())
+			{
+				s.inc();
+				if (c->get() == p->get())
+				{
+					f = 1;
+					while (f)
+					{
+						if (!s.get())
+						{
+							s.inc();
+							if (c->get() != p->get())
+							{
+								while (p->getprev())
+								{
+									s.pop();
+									c = c->getprev();
+									p = p->getprev();
+								}
+								f = 0;
+							}
+						}
+						else if (s.get() == n + 1)
+						{
+							s.pop();
+							c = c->getprev();
+							p = p->getprev();
+							if (!p)
+							{
+								f = 0;
+							}
+						}
+						else
+						{
+							if (c->getnext(s.get() - 1))
+							{
+								if (p->getnext(s.get() - 1))
+								{
+									c = c->getnext(s.get() - 1);
+									p = p->getnext(s.get() - 1);
+									s.inc();
+									s.push(0);
+								}
+								else
+								{
+									while (p->getprev())
+									{
+										s.pop();
+										c = c->getprev();
+										p = p->getprev();
+									}
+									f = 0;
+								}
+							}
+							else
+							{
+								if (p->getnext(s.get() - 1))
+								{
+									while (p->getprev())
+									{
+										s.pop();
+										c = c->getprev();
+										p = p->getprev();
+									}
+									f = 0;
+								}
+								else
+								{
+									s.inc();
+								}
+							}
+						}
+					}
+				}
+			}
+			else if (s.get() == n + 1)
+			{
+				s.pop();
+				c = c->getprev();
+				l.take(i);
+			}
+			else
+			{
+				if (c->getnext(s.get() - 1))
+				{
+					c = c->getnext(s.get() - 1);
+					l.ate(Int(s.get() - 1));
+					s.inc();
+					s.push(0);
+				}
+				else 
+				{
+					s.inc();
+				}
+			}
+		}
+	}
+
+	void copy(Tree &t, List<Int> &pos)
+	{
+		t.wipe();
+		Stack s;
+		Int buff;
+		Node *c = 0, *p = 0;
+		if (pos.getfirst())
+		{
+			pos.take(buff);
+			c = root;
+		}
+		while (c)
+		{
+			if (pos.getfirst())
+			{
+				pos.take(buff);
+				c = c->getnext(buff.body);
+			}
+			else if (t.root)
+			{
+				if (s.get() == n + 1)
+				{
+					s.pop();
+					c = c->getprev();
+					p = p->getprev();
+					if (!p)
+					{
+						c = 0;
+					}
+				}
+				else if (!s.get())
+				{
+					p->set(c->get());
+					s.inc();
+				}
+				else
+				{
+					if (c->getnext(s.get() - 1))
+					{
+						c = c->getnext(s.get() - 1);
+						p->setnext(new Node(p), s.get() - 1);
+						p = p->getnext(s.get() - 1);
+						s.inc();
+						s.push(0);
+					}
+					else
+					{
+						s.inc();
+					}
+				}
+			}
+			else
+			{
+				t.root = new Node;
+				p = t.root;
+				s.push(0);
+			}
+		}
+		pos.wipe();
 	}
 
 	void in(char **, int[n + 1]);
