@@ -1,0 +1,32 @@
+﻿  Lab3.cpp
+C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(112): warning C4018: <: несоответствие типов со знаком и без знака
+  C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(162): note: выполняется компиляция ссылки на экземпляр шаблон функции "void loop<int>(T)"
+          with
+          [
+              T=int
+          ]
+C:\Users\user\source\repos\Lab3\Lab3\Tree.h(157): warning C4018: <: несоответствие типов со знаком и без знака
+  C:\Users\user\source\repos\Lab3\Lab3\Tree.h(153): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
+  C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(92): note: выполняется компиляция ссылки на экземпляр шаблон функции "void Tree<T>::showLKP(void)"
+          with
+          [
+              T=std::string
+          ]
+  C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(41): note: выполняется компиляция ссылки на экземпляр шаблон класс "Tree<T>"
+          with
+          [
+              T=std::string
+          ]
+  C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(168): note: выполняется компиляция ссылки на экземпляр шаблон функции "void loop<std::string>(T)"
+          with
+          [
+              T=std::string
+          ]
+C:\Users\user\source\repos\Lab3\Lab3\Tree.h(147): warning C4018: <: несоответствие типов со знаком и без знака
+  C:\Users\user\source\repos\Lab3\Lab3\Tree.h(143): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
+  C:\Users\user\source\repos\Lab3\Lab3\Lab3.cpp(89): note: выполняется компиляция ссылки на экземпляр шаблон функции "void Tree<T>::showPKL(void)"
+          with
+          [
+              T=std::string
+          ]
+  Lab3.vcxproj -> C:\Users\user\source\repos\Lab3\Debug\Lab3.exe
