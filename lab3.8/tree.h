@@ -49,7 +49,8 @@ public: //private
 
 		void setnext(Node *a, int i)
 		{
-			p[i] = new Node(a->get(), this);
+			p[i] = a;
+			p[i]->prev = this;
 		}
 
 		void setprev(Node *p)
@@ -166,11 +167,12 @@ public:
 				{
 					if (F(c->getnext(s.get())->get()))
 					{
-						s.inc();
-						s.push(0);
 						c = c->getnext(s.get());
 						p->setnext(new Node(p), s.get());
+						p = p->getnext(s.get());
 						p->set(c->get());
+						s.inc();
+						s.push(0);
 					}
 					else
 					{
